@@ -83,6 +83,66 @@ func Encode(content string, level RecoveryLevel, size int) ([]byte, error) {
 	return q.PNG(size)
 }
 
+// GetModule encoding a QR Code and return matrix.
+//
+func GetModule(content string, level RecoveryLevel, size int, testImg string) (*[][]bool, error) {
+	var q *QRCode
+
+	q, err := New(content, level)
+
+	if err != nil {
+		return nil, err
+	}
+
+	testPng, err := q.PNG(size)
+
+	if err != nil {
+		return nil, err
+	}
+
+	outputModule := [][]bool{{}}
+	yIteratorOutput := 0
+	rowIsUsed := false
+
+	for yIteratorInput, str := range q.symbol.module {
+		for xIteratorInput, val := range str {
+			if q.symbol.isUsed[yIteratorInput][xIteratorInput] == true {
+				outputModule[yIteratorOutput] = append(outputModule[yIteratorOutput], val)
+				rowIsUsed = true
+			}
+		}
+		if rowIsUsed == true {
+			outputModule = append(outputModule, []bool{})
+			yIteratorOutput++
+		}
+		rowIsUsed = false
+	}
+
+	outputModule = append(outputModule[:yIteratorOutput])
+
+	if testImg != "" { // Makes image of encoded matrix
+		var testMatrix [][]bool
+
+		q.symbol.size = yIteratorOutput
+		q.symbol.quietZoneSize = 0
+		for y := 0; y < yIteratorOutput; y++ {
+			testMatrix = append(testMatrix, []bool{})
+			for x := 0; x < yIteratorOutput; x++ {
+				testMatrix[y] = append(testMatrix[y], true)
+			}
+		}
+		q.symbol.isUsed = testMatrix
+		q.symbol.module = outputModule
+		err = ioutil.WriteFile(testImg, testPng, os.FileMode(0644))
+
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	return &outputModule, nil
+}
+
 // WriteFile encodes, then writes a QR Code to the given filename in PNG format.
 //
 // size is both the image width and height in pixels. If size is too small then
