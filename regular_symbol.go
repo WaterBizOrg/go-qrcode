@@ -1,10 +1,10 @@
-// go-qrcode
+// waterbiz-qr
 // Copyright 2014 Tom Harwood
 
 package qrcode
 
 import (
-	bitset "github.com/skip2/go-qrcode/bitset"
+	bitset "github.com/WaterBizOrg/waterbiz-qr/bitset"
 )
 
 type regularSymbol struct {

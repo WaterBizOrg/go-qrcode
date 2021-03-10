@@ -1,4 +1,4 @@
-// go-qrcode
+// waterbiz-qr
 // Copyright 2014 Tom Harwood
 
 // Package bitset implements an append only bit array.

@@ -1,4 +1,4 @@
-// go-qrcode
+// waterbiz-qr
 // Copyright 2014 Tom Harwood
 
 package main
@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	qrcode "github.com/skip2/go-qrcode"
+	qrcode "github.com/WaterBizOrg/waterbiz-qr"
 )
 
 func main() {
@@ -20,7 +20,7 @@ func main() {
 	disableBorder := flag.Bool("d", false, "disable QR Code border")
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, `qrcode -- QR Code encoder in Go
-https://github.com/skip2/go-qrcode
+https://github.com/WaterBizOrg/waterbiz-qr
 
 Flags:
 `)
@@ -35,7 +35,7 @@ Usage:
 
   2. Save to file if "display" not available:
 
-       qrcode "homepage: https://github.com/skip2/go-qrcode" > out.png
+       qrcode "homepage: https://github.com/WaterBizOrg/waterbiz-qr" > out.png
 
 `)
 	}

@@ -1,4 +1,4 @@
-// go-qrcode
+// waterbiz-qr
 // Copyright 2014 Tom Harwood
 
 package reedsolomon
@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"log"
 
-	bitset "github.com/skip2/go-qrcode/bitset"
+	bitset "github.com/WaterBizOrg/waterbiz-qr/bitset"
 )
 
 // gfPoly is a polynomial over GF(2^8).

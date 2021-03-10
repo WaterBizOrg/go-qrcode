@@ -1,4 +1,4 @@
-// go-qrcode
+// waterbiz-qr
 // Copyright 2014 Tom Harwood
 
 package qrcode
@@ -6,7 +6,7 @@ package qrcode
 import (
 	"testing"
 
-	bitset "github.com/skip2/go-qrcode/bitset"
+	bitset "github.com/WaterBizOrg/waterbiz-qr/bitset"
 )
 
 func TestFormatInfo(t *testing.T) {

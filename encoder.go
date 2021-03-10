@@ -1,4 +1,4 @@
-// go-qrcode
+// waterbiz-qr
 // Copyright 2014 Tom Harwood
 
 package qrcode
@@ -7,7 +7,7 @@ import (
 	"errors"
 	"log"
 
-	bitset "github.com/skip2/go-qrcode/bitset"
+	bitset "github.com/WaterBizOrg/waterbiz-qr/bitset"
 )
 
 // Data encoding.

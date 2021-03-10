@@ -1,4 +1,4 @@
-// go-qrcode
+// waterbiz-qr
 // Copyright 2014 Tom Harwood
 
 /*
@@ -60,8 +60,8 @@ import (
 	"log"
 	"os"
 
-	bitset "github.com/skip2/go-qrcode/bitset"
-	reedsolomon "github.com/skip2/go-qrcode/reedsolomon"
+	bitset "github.com/WaterBizOrg/waterbiz-qr/bitset"
+	reedsolomon "github.com/WaterBizOrg/waterbiz-qr/reedsolomon"
 )
 
 // Encode a QR Code and return a raw PNG image.
